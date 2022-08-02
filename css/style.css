@@ -1,0 +1,54 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #171717;
+}
+
+.container {
+  padding: 15px;
+}
+
+.grid {
+  position: relative;
+  width: 100%;
+}
+
+.item {
+  display: block;
+  position: absolute;
+  width: calc((100% - 30px - 60px) / 3);
+  margin: 0px;
+  padding: 15px;
+  z-index: 1;
+  background: transparent;
+}
+
+.item.muuri-item-dragging {
+  z-index: 3;
+}
+
+.item.muuri-item-releasing {
+  z-index: 2;
+}
+
+.item.muuri-item-hidden {
+  z-index: 0;
+}
+
+.item-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  vertical-align: bottom;
+}
+
+@media screen and (max-width: 1000px) {
+  .item {
+    width: calc((100% - 30px - 30px) / 2);
+  }
+}
+@media screen and (max-width: 600px) {
+  .item {
+    width: calc(100% - 30px);
+  }
+}/*# sourceMappingURL=style.css.map */
