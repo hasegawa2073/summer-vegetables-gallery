@@ -2,57 +2,79 @@
   {
     "name": "tomato01",
     "path": "/image/tomato01.jpg",
-    "type": "tomato"
+    "type": "tomato",
+    "width": 880,
+    "height": 588
   },
   {
     "name": "corn01",
     "path": "/image/corn01.jpg",
-    "type": "corn"
+    "type": "corn",
+    "width": 880,
+    "height": 584
   },
   {
     "name": "greenpepper01",
     "path": "/image/greenpepper01.jpg",
-    "type": "greenpepper"
+    "type": "greenpepper",
+    "width": 880,
+    "height": 662
   },
   {
     "name": "cucumber01",
     "path": "/image/cucumber01.jpg",
-    "type": "cucumber"
+    "type": "cucumber",
+    "width": 880,
+    "height": 360
   },
   {
     "name": "tomato02",
     "path": "/image/tomato02.jpg",
-    "type": "tomato"
+    "type": "tomato",
+    "width": 880,
+    "height": 587
   },
   {
     "name": "corn02",
     "path": "/image/corn02.jpg",
-    "type": "corn"
+    "type": "corn",
+    "width": 880,
+    "height": 588
   },
   {
     "name": "tomato03",
     "path": "/image/tomato03.jpg",
-    "type": "tomato"
+    "type": "tomato",
+    "width": 880,
+    "height": 613
   },
   {
     "name": "eggplant01",
     "path": "/image/eggplant01.jpg",
-    "type": "eggplant"
+    "type": "eggplant",
+    "width": 880,
+    "height": 262
   },
   {
     "name": "tomato04",
     "path": "/image/tomato04.jpg",
-    "type": "tomato"
+    "type": "tomato",
+    "width": 880,
+    "height": 588
   },
   {
     "name": "corn03",
     "path": "/image/corn03.jpg",
-    "type": "corn"
+    "type": "corn",
+    "width": 880,
+    "height": 586
   },
 
   {
     "name": "cucumber02",
     "path": "/image/cucumber02.jpg",
-    "type": "cucumber"
+    "type": "cucumber",
+    "width": 880,
+    "height": 588
   }
 ]

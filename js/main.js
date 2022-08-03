@@ -1,12 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
   const elem = document.querySelector('.grid');
-  // const grid = new Muuri(elem, {
-  //   items: elem.querySelectorAll('.item'),
-  //   layoutOnResize: 10,
-  //   layoutDuration: 600,
-  // });
-  // console.log(grid);
-
   const fragment = document.createDocumentFragment();
 
   const JSONPath = '/JSON/image.json';
@@ -21,6 +14,8 @@ document.addEventListener('DOMContentLoaded', function () {
       item.className = 'item';
       img.className = 'item-content';
       img.src = data['path'];
+      img.width = data['width'];
+      img.height = data['height'];
       item.appendChild(img);
       fragment.appendChild(item);
     });
