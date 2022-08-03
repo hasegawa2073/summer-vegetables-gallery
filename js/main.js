@@ -14,24 +14,32 @@ document.addEventListener('DOMContentLoaded', function () {
     return response.json();
   });
 
-  jsonData.then((jsonData) => {
-    jsonData.forEach((data) => {
-      const item = document.createElement('div');
-      const img = document.createElement('img');
-      item.className = 'item';
-      img.className = 'item-content';
-      img.src = data['path'];
-      img.width = data['width'];
-      img.height = data['height'];
-      item.appendChild(img);
-      fragment.appendChild(item);
-    });
-    elem.appendChild(fragment);
+  // muuriを使う
+  const useMuuri = function () {
     const grid = new Muuri(elem, {
       layoutOnResize: 10,
       layoutDuration: 600,
     });
-  });
+  };
+
+  // コンテンツの初期化(すべて表示)
+  const initItem = function () {
+    jsonData.then((jsonData) => {
+      jsonData.forEach((data) => {
+        const item = document.createElement('div');
+        const img = document.createElement('img');
+        item.className = 'item';
+        img.className = 'item-content';
+        img.src = data['path'];
+        img.width = data['width'];
+        img.height = data['height'];
+        item.appendChild(img);
+        fragment.appendChild(item);
+      });
+      elem.appendChild(fragment);
+      useMuuri();
+    });
+  };
 
   // コンテンツを削除する
   const removeItem = function () {
@@ -62,14 +70,6 @@ document.addEventListener('DOMContentLoaded', function () {
     return filterArray;
   };
 
-  // muuriを使う
-  const useMuuri = function () {
-    const grid = new Muuri(elem, {
-      layoutOnResize: 10,
-      layoutDuration: 600,
-    });
-  };
-
   // コンテンツを更新(削除＆追加)
   const updateItem = function (type) {
     removeItem();
@@ -81,6 +81,8 @@ document.addEventListener('DOMContentLoaded', function () {
       useMuuri();
     });
   };
+
+  initItem();
 
   btnCucumber.addEventListener('click', function () {
     updateItem('cucumber');
