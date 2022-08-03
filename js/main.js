@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const elem = document.querySelector('.grid');
   const fragment = document.createDocumentFragment();
 
+  const btns = document.querySelectorAll('.header__type');
   const btnAll = document.querySelector('.all');
   const btnCucumber = document.querySelector('.cucumber');
   const btnCorn = document.querySelector('.corn');
@@ -83,23 +84,47 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   };
 
+  // すべてのボタンからアクティブを削除
+  const removeActive = function () {
+    btns.forEach((btn) => {
+      btn.classList.remove('active');
+    });
+  };
+
+  // ボタンのカレントにアクティブを追加
+  const addActive = function (e) {
+    e.target.classList.add('active');
+  };
+
+  // ボタンのカレントを更新
+  const updateActive = function (e) {
+    removeActive();
+    addActive(e);
+  };
+
   initItem();
-  btnAll.addEventListener('click', function () {
+  btnAll.addEventListener('click', function (e) {
+    updateActive(e);
     initItem();
   });
-  btnCucumber.addEventListener('click', function () {
+  btnCucumber.addEventListener('click', function (e) {
+    updateActive(e);
     updateItem('cucumber');
   });
-  btnCorn.addEventListener('click', function () {
+  btnCorn.addEventListener('click', function (e) {
+    updateActive(e);
     updateItem('corn');
   });
-  btnTomato.addEventListener('click', function () {
+  btnTomato.addEventListener('click', function (e) {
+    updateActive(e);
     updateItem('tomato');
   });
-  btnEggplant.addEventListener('click', function () {
+  btnEggplant.addEventListener('click', function (e) {
+    updateActive(e);
     updateItem('eggplant');
   });
-  btnGreenpepper.addEventListener('click', function () {
+  btnGreenpepper.addEventListener('click', function (e) {
+    updateActive(e);
     updateItem('greenpepper');
   });
 });
