@@ -10,12 +10,13 @@ body {
 
 .header {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
   align-items: center;
   margin-top: 80px;
   padding: 0 30px 0;
 }
 .header__ttl {
+  margin-right: auto;
   font-family: "Klee One", cursive;
   font-size: 3.2rem;
   letter-spacing: 0.5em;
@@ -23,6 +24,7 @@ body {
 }
 .header__btns {
   display: flex;
+  padding: 0;
 }
 .header__list {
   list-style: none;
