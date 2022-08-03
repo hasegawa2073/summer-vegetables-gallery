@@ -22,8 +22,17 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   };
 
+  // コンテンツをすべて削除する
+  const removeItem = function () {
+    const items = document.querySelectorAll('.item');
+    items.forEach((item) => {
+      item.remove();
+    });
+  };
+
   // コンテンツの初期化(すべて表示)
   const initItem = function () {
+    removeItem();
     jsonData.then((jsonData) => {
       jsonData.forEach((data) => {
         const item = document.createElement('div');
@@ -38,14 +47,6 @@ document.addEventListener('DOMContentLoaded', function () {
       });
       elem.appendChild(fragment);
       useMuuri();
-    });
-  };
-
-  // コンテンツを削除する
-  const removeItem = function () {
-    const items = document.querySelectorAll('.item');
-    items.forEach((item) => {
-      item.remove();
     });
   };
 
@@ -83,7 +84,9 @@ document.addEventListener('DOMContentLoaded', function () {
   };
 
   initItem();
-
+  btnAll.addEventListener('click', function () {
+    initItem();
+  });
   btnCucumber.addEventListener('click', function () {
     updateItem('cucumber');
   });
