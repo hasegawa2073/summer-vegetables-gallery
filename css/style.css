@@ -1,7 +1,46 @@
+html {
+  font-size: 62.5%;
+}
+
 body {
   margin: 0;
   padding: 0;
   background-color: #171717;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 80px;
+  padding: 0 30px 0;
+}
+.header__ttl {
+  font-family: "Klee One", cursive;
+  font-size: 3.2rem;
+  letter-spacing: 0.5em;
+  color: #ffffff;
+}
+.header__btns {
+  display: flex;
+}
+.header__list {
+  list-style: none;
+}
+.header__type {
+  padding: 5px 10px;
+  font-family: "Klee One", cursive;
+  font-size: 2rem;
+  color: #7b7b7b;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.header__type:hover {
+  color: #bfbfbf;
+}
+.header__type.active {
+  color: #ffffff;
 }
 
 .container {
