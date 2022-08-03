@@ -33,32 +33,68 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  btnCucumber.addEventListener('click', function () {
+  // コンテンツを削除する
+  const removeItem = function () {
     const items = document.querySelectorAll('.item');
     items.forEach((item) => {
       item.remove();
     });
+  };
+
+  // コンテンツを新しく生成する
+  const createItem = function (data) {
+    const item = document.createElement('div');
+    const img = document.createElement('img');
+    item.className = 'item';
+    img.className = 'item-content';
+    img.src = data['path'];
+    img.width = data['width'];
+    img.height = data['height'];
+    item.appendChild(img);
+    fragment.appendChild(item);
+  };
+
+  // JSONデータのフィルタリング
+  const filterJSON = function (jsonData, type) {
+    const filterArray = jsonData.filter((item) => {
+      return item['type'] === type;
+    });
+    return filterArray;
+  };
+
+  // muuriを使う
+  const useMuuri = function () {
+    const grid = new Muuri(elem, {
+      layoutOnResize: 10,
+      layoutDuration: 600,
+    });
+  };
+
+  // コンテンツを更新(削除＆追加)
+  const updateItem = function (type) {
+    removeItem();
     jsonData.then((jsonData) => {
-      console.log(jsonData);
-      const cucumberArray = jsonData.filter((item, i, array) => {
-        return item['type'] === 'cucumber';
-      });
-      cucumberArray.forEach((data) => {
-        const item = document.createElement('div');
-        const img = document.createElement('img');
-        item.className = 'item';
-        img.className = 'item-content';
-        img.src = data['path'];
-        img.width = data['width'];
-        img.height = data['height'];
-        item.appendChild(img);
-        fragment.appendChild(item);
+      filterJSON(jsonData, type).forEach((data) => {
+        createItem(data);
       });
       elem.appendChild(fragment);
-      const grid = new Muuri(elem, {
-        layoutOnResize: 10,
-        layoutDuration: 600,
-      });
+      useMuuri();
     });
+  };
+
+  btnCucumber.addEventListener('click', function () {
+    updateItem('cucumber');
+  });
+  btnCorn.addEventListener('click', function () {
+    updateItem('corn');
+  });
+  btnTomato.addEventListener('click', function () {
+    updateItem('tomato');
+  });
+  btnEggplant.addEventListener('click', function () {
+    updateItem('eggplant');
+  });
+  btnGreenpepper.addEventListener('click', function () {
+    updateItem('greenpepper');
   });
 });
