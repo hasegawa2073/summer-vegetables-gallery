@@ -2,13 +2,15 @@ document.addEventListener('DOMContentLoaded', function () {
   const elem = document.querySelector('.grid');
   const fragment = document.createDocumentFragment();
 
+  const pageTitle = document.querySelector('.header__link');
+  const listAll = document.querySelector('.all');
+  const listCucumber = document.querySelector('.cucumber');
+  const listCorn = document.querySelector('.corn');
+  const listTomato = document.querySelector('.tomato');
+  const listEggplant = document.querySelector('.eggplant');
+  const listGreenpepper = document.querySelector('.greenpepper');
   const btns = document.querySelectorAll('.header__type');
-  const btnAll = document.querySelector('.all');
-  const btnCucumber = document.querySelector('.cucumber');
-  const btnCorn = document.querySelector('.corn');
-  const btnTomato = document.querySelector('.tomato');
-  const btnEggplant = document.querySelector('.eggplant');
-  const btnGreenpepper = document.querySelector('.greenpepper');
+  const btnAll = listAll.querySelector('.header__type');
 
   const JSONPath = '/JSON/image.json';
   const jsonData = fetch(JSONPath).then((response) => {
@@ -103,27 +105,33 @@ document.addEventListener('DOMContentLoaded', function () {
   };
 
   initItem();
-  btnAll.addEventListener('click', function (e) {
+
+  pageTitle.addEventListener('click', function (e) {
+    removeActive();
+    btnAll.classList.add('active');
+    initItem();
+  });
+  listAll.addEventListener('click', function (e) {
     updateActive(e);
     initItem();
   });
-  btnCucumber.addEventListener('click', function (e) {
+  listCucumber.addEventListener('click', function (e) {
     updateActive(e);
     updateItem('cucumber');
   });
-  btnCorn.addEventListener('click', function (e) {
+  listCorn.addEventListener('click', function (e) {
     updateActive(e);
     updateItem('corn');
   });
-  btnTomato.addEventListener('click', function (e) {
+  listTomato.addEventListener('click', function (e) {
     updateActive(e);
     updateItem('tomato');
   });
-  btnEggplant.addEventListener('click', function (e) {
+  listEggplant.addEventListener('click', function (e) {
     updateActive(e);
     updateItem('eggplant');
   });
-  btnGreenpepper.addEventListener('click', function (e) {
+  listGreenpepper.addEventListener('click', function (e) {
     updateActive(e);
     updateItem('greenpepper');
   });
